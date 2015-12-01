@@ -38,3 +38,17 @@
 | 3 1 100 |            |
 +---------+------------+
 '''
+
+f = open('input.txt')
+blocnot = open('output.txt','w')
+N, K = tuple([int(i) for i in f.readline().split()])
+balance = [0 for i in range(N)]
+
+for i in range(K):
+    d,c,m = tuple([int(j) for j in f.readline().split()])
+    balance[d-1] -= m
+    balance[c-1] += m
+blocnot.write(' '.join([str(i) for i in balance]))
+
+blocnot.close()
+f.close()

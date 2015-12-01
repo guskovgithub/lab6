@@ -25,3 +25,10 @@
 | 6 4 6 3 |           |
 +---------+-----------+
 '''
+
+f=open('input.txt')
+blocnot=open('output.txt','w')
+k, n = tuple([int(i) for i in f.readline().split()])
+blocnot.write(' '.join([str(min(l)) for l in zip(*[[int(j) for j in f.readline().split()] for i in range(k)])]))
+blocnot.close()
+f.close()
