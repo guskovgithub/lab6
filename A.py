@@ -4,8 +4,8 @@ massiv=f.readline().split()
 vedro=set()
 for i in massiv:
    if i not in vedro:
-       vadro.add(i)
+       vedro.add(i)
    else:   
       f=open('output.txt', 'w')
-      print(x, file=f)
+      print(i, file=f)
       f.close()
