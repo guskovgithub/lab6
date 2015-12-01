@@ -42,3 +42,23 @@
 | 50 5 5 5 |       |
 +----------+-------+
 '''
+
+f=open('input.txt')
+N=int(f.readline())
+massiv=f.readline().split()
+massiv=[int(massiv[i]) for i in range(N)]
+count_money=0
+for i in range(N):
+      
+      if massiv[i] == 5:
+         count_money += 1
+      else:
+         sdaja = massiv[i] - 5
+         while sdaja > 0:
+            sdaja -= 5
+            count_money -= 1
+            
+f=open('output.txt', 'w')            
+
+print(abs(count_money), file=f)
+f.close()
