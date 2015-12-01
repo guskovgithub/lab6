@@ -25,3 +25,26 @@
   | -40 41 -42 -41 42 40 |       |
   +----------------------+-------+
 '''
+
+
+f=open('input.txt')
+blocnot=open('output.txt','w')
+n=int(f.readline())
+kucha_tapock=[int(i) for i in f.readline().split()]
+tapki=[]
+were=set()
+for j in range(len(kucha_tapock)):
+    if abs(kucha_tapock[j]) in were: continue
+    were.add(abs(kucha_tapock[j]))
+    tw=[[],[]]
+    for i in range(j,len(kucha_tapock)):
+        if abs(kucha_tapock[i])==abs(kucha_tapock[j]):
+            tw[kucha_tapock[i]>0].append(i)
+    tapki.append(tw)
+mn = min([min([n+1]+[j-i for i in p[0] for j in p[1] if j>i]) for p in tapki])
+
+if mn < n: O.write(str(mn))
+else: blocnot.write('0')
+blocnot.close()
+f.close()
+
