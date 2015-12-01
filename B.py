@@ -45,23 +45,21 @@
 
 f=open('input.txt')
 N=int(f.readline())
-massiv=f.readline().split()
-massiv=[int(massiv[i]) for i in range(N)]
-count_money=0
-for i in range(N):
-      
-      if massiv[i] == 5:
-         count_money += 1
-      else:
-         sdaja = massiv[i] - 5
-         while sdaja > 0:
-            sdaja -= 5
-            count_money -= 1
+free=0
+fives=0
+massiv=list(map(int, f.readline().split()))
+for i in massiv:
+    if i==5:
+        free+=1
+    else:
+        d=(i-5)//5
+        if free>0:
+            if free>=d: d,free = 0, free-d
+            else: d,free = d-free, 0
+        fives+=d
             
 f=open('output.txt', 'w')    
         
-if count_money < 0:
-    print(-count_money, file=f)
-else:
-    print(0, file = f)    
+
+print(fives, file = f)    
 f.close()
