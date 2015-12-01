@@ -58,7 +58,10 @@ for i in range(N):
             sdaja -= 5
             count_money -= 1
             
-f=open('output.txt', 'w')            
-
-print(abs(count_money), file=f)
+f=open('output.txt', 'w')    
+        
+if count_money < 0:
+    print(-count_money, file=f)
+else:
+    print(0, file = f)    
 f.close()
