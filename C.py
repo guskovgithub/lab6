@@ -27,24 +27,18 @@
 '''
 
 
-f=open('input.txt')
-blocnot=open('output.txt','w')
-n=int(f.readline())
-kucha_tapock=[int(i) for i in f.readline().split()]
-tapki=[]
-were=set()
-for j in range(len(kucha_tapock)):
-    if abs(kucha_tapock[j]) in were: continue
-    were.add(abs(kucha_tapock[j]))
-    tw=[[],[]]
-    for i in range(j,len(kucha_tapock)):
-        if abs(kucha_tapock[i])==abs(kucha_tapock[j]):
-            tw[kucha_tapock[i]>0].append(i)
-    tapki.append(tw)
-mn = min([min([n+1]+[j-i for i in p[0] for j in p[1] if j>i]) for p in tapki])
-
-if mn < n: O.write(str(mn))
-else: blocnot.write('0')
-blocnot.close()
-f.close()
+input = open('input.txt', 'r')
+output = open('output.txt', 'w')
+N, Slippers = input.readlines()
+N = int(N.rstrip())
+Slippers = [int(x) for x in Slippers.split()]
+Distance = 0
+for i in range(N-1):
+    if Slippers[i] < 0:
+        for k in range(i+1, N):
+            if Slippers[k] == -Slippers[i] and Distance == 0:
+                Distance = k - i
+            elif Slippers[k] == -Slippers[i] and Distance > k - i:
+                Distance = k - i
+print(Distance, file = output)
 
