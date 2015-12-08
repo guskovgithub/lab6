@@ -1,6 +1,6 @@
-input = open('input.txt', 'r')
+inputick = open('input.txt', 'r')
 output = open('output.txt', 'w')
-N, Slippers = input.readlines()
+N, Slippers = inputick.readlines()
 N = int(N.rstrip())
 Slippers = [int(x) for x in Slippers.split()]
 Distance = 0
@@ -12,3 +12,5 @@ for i in range(N-1):
             elif Slippers[k] == -Slippers[i] and Distance > k - i:
                 Distance = k - i
 print(Distance, file = output)
+inputick.close()
+output.close() 
