@@ -12,5 +12,4 @@ for i in range(N-1):
             elif Slippers[k] == -Slippers[i] and Distance > k - i:
                 Distance = k - i
 print(Distance, file = output)
-inputick.close()
-output.close() 
+
